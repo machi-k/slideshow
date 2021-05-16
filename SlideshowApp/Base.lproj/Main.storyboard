@@ -65,12 +65,13 @@
                     <connections>
                         <outlet property="imagename" destination="rZ7-kH-cvW" id="hCM-aE-alS"/>
                         <outlet property="start" destination="HlB-yA-Dod" id="n6I-KM-G2U"/>
+                        <segue destination="Nrp-5L-r9O" kind="show" identifier="result" id="eXu-P0-e9k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="2Aj-hk-ie5">
                     <connections>
-                        <segue destination="Nrp-5L-r9O" kind="show" id="xfB-fu-TxT"/>
+                        <action selector="ontapimage:" destination="BYZ-38-t0r" id="BF7-zV-EVr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -84,21 +85,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqN-LF-7X6">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqN-LF-7X6">
                                 <rect key="frame" x="0.0" y="53" width="414" height="443"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Miq-Ru-RVu" appends="YES" id="zfy-iM-VHD"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-Qk-0No">
+                                <rect key="frame" x="160" y="542" width="95" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="6Px-hN-544"/>
+                                </constraints>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="S8M-as-YvE" kind="unwind" unwindAction="unwind:" id="mC0-jQ-1GK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ii8-FN-JHo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Ch-Qk-0No" firstAttribute="leading" secondItem="Ii8-FN-JHo" secondAttribute="leading" constant="160" id="2uB-X5-jgt"/>
+                            <constraint firstItem="0Ch-Qk-0No" firstAttribute="top" secondItem="tqN-LF-7X6" secondAttribute="bottom" constant="46" id="Ezl-er-sBi"/>
+                            <constraint firstItem="Ii8-FN-JHo" firstAttribute="bottom" secondItem="0Ch-Qk-0No" secondAttribute="bottom" constant="241" id="mXN-j7-w4V"/>
+                            <constraint firstItem="0Ch-Qk-0No" firstAttribute="centerX" secondItem="otW-Ci-aN0" secondAttribute="centerX" id="rFd-xW-eYj"/>
+                            <constraint firstItem="0Ch-Qk-0No" firstAttribute="centerX" secondItem="tqN-LF-7X6" secondAttribute="centerX" id="xV3-9B-SVL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EvS-kJ-eFD"/>
+                    <connections>
+                        <outlet property="image" destination="tqN-LF-7X6" id="twc-yA-SC4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOU-IR-Kqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="S8M-as-YvE" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Miq-Ru-RVu"/>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="79.6875"/>

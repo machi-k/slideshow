@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var start: UIButton!
     @IBOutlet weak var imagename: UIImageView!
     
+    @IBAction func ontapimage(_ sender: Any) {
+        // セグエを使用して画面を遷移
+        performSegue(withIdentifier: "result", sender: nil)
+    }
     
     // 配列に指定するindex番号を宣言
         var nowIndex:Int = 0
@@ -37,7 +41,7 @@ class ViewController: UIViewController {
        imagename.image = imageArray[nowIndex]
     }
     
-   
+   //
     // 再生ボタンを押した時の処理
     @IBAction func start(_ sender: Any) {
     
@@ -66,6 +70,7 @@ class ViewController: UIViewController {
         
 
         @objc func changeImage() {
+            ////
             // indexを増やして表示する画像を切り替える
             nowIndex += 1
 
@@ -73,8 +78,10 @@ class ViewController: UIViewController {
             if (nowIndex == imageArray.count) {
                 // indexを一番最初の数字に戻す
                 nowIndex = 0
+              
+                
             }
-           
+            imagename.image = imageArray[nowIndex]//画像をセットする。
         }
     //画像タップすると動く画像
    
@@ -85,7 +92,8 @@ class ViewController: UIViewController {
         let resultViewController:ResultViewController = segue.destination as!
             ResultViewController
         // 遷移先のResultViewControllerで宣言しているx, yに値を代入して渡す
-       resultViewController.image = imageArray.image!
+        
+       resultViewController.data = imagename.image
     }
         //進むボタン
     @IBAction func susumu(_ sender: Any) {
@@ -133,14 +141,16 @@ class ViewController: UIViewController {
             let image = UIImage(named: name)
 
             // Image Viewに読み込んだ画像をセット
-            imagename.image = image
+            imagename.image = image!
         }
     
     let image = UIImage(named: "a1")
-            imagename.image = image
-        }
+    //func imagename.image = image
+        
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
-
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        }
+}

@@ -9,16 +9,13 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
-    // スライドショーさせる画像の配列を宣言
-        var imageArray:[UIImage] = [
-            UIImage(named: "a1")!,
-            UIImage(named: "b1")!,
-            UIImage(named: "c1")!,
-            ]
+    @IBOutlet weak var image: UIImageView!
+    
+    var data: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        image.image = data
         // Do any additional setup after loading the view.
     }
     
